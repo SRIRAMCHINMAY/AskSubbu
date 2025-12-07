@@ -7,52 +7,28 @@ Real-time voice-enabled AI assistant for e-commerce with RAG and function callin
 - 🧠 RAG with product knowledge
 - 🔧 Order tracking & product search
 - ⚡ Real-time audio streaming (LiveKit)
-                  ┌───────────────────┐
-                  │   User Voice      │
-                  └────────┬──────────┘
-                           │
-                 Speech-to-Text (STT)
-                           │
-                           ▼
-                  ┌───────────────────┐
-                  │  Text Query       │
-                  └────────┬──────────┘
-                           │
-           ┌───────────────┼─────────────────┐
-           │               │                 │
-           ▼               ▼                 ▼
-   ┌─────────────┐  ┌─────────────┐   ┌─────────────┐
-   │ Product DB  │  │ Inventory / │   │ FAQ / Docs  │
-   │  Catalog    │  │ Pricing API │   │ (PDF/HTML)  │
-   └─────┬───────┘  └─────┬───────┘   └─────┬───────┘
-         │                 │                 │
-         └──────┐   ┌──────┘                 │
-                ▼   ▼                        ▼
-            Vectorization / Embeddings (OpenAI, Cohere, etc.)
-                │   │                        │
-                └───┴──────────────┐
-                                   ▼
-                           Vector Store(s)
-                   (Chroma, Milvus, Weaviate, Pinecone)
-                                   │
-                                   ▼
-                         Retrieval Module
-               (Top-k relevant chunks from each source)
-                                   │
-                                   ▼
-                              Query Router
-               (Optional: decide which sources to prioritize)
-                                   │
-                                   ▼
-                       Large Language Model (LLM)
-                     (Generates natural response)
-                                   │
-                                   ▼
-                         Text-to-Speech (TTS)
-                       (ElevenLabs, Vocode, gTTS)
-                                   │
-                                   ▼
-                            Voice Response
+               flowchart TD
+    A[User Voice] -->|Speech-to-Text| B[Text Query]
+
+    B --> C[Product DB / Catalog]
+    B --> D[Inventory / Pricing API]
+    B --> E[FAQ / Docs]
+    B --> F[Customer Reviews / External Docs]
+
+    C --> G[Vectorization / Embeddings]
+    D --> G
+    E --> G
+    F --> G
+
+    G --> H[Vector Store(s) (FAISS / Chroma / Milvus)]
+
+    H --> I[Retrieval Module (Top-k per source)]
+
+    I --> J[Query Router / Source Prioritization]
+
+    J --> K[Large Language Model (LLM)]
+    K --> L[Text-to-Speech (TTS)]
+    L --> M[Voice Response to User]
 
 ## Setup
 

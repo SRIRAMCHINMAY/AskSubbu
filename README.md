@@ -12,7 +12,7 @@ Real-time voice-enabled AI assistant for e-commerce with RAG and function callin
 
 1. **Clone and install:**
 ```bash
-git clone https://github.com/yourusername/ecommerce-voicebot.git
+git clone https://github.com/SRIRAMCHINMAY/AskSubbu.git
 cd ecommerce-voicebot
 mamba create -n voicebot python=3.11 -y
 mamba activate voicebot

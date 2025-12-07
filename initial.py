@@ -1,14 +1,4 @@
-#!/usr/bin/env python3
-# E-commerce Voicebot with FAISS - Complete Working Version
 
-"""
-SETUP:
-1. mamba create -n voicebot python=3.11 -y
-2. mamba activate voicebot
-3. pip install openai python-dotenv faiss-cpu sentence-transformers numpy
-4. Create .env with: OPENROUTER_API_KEY=your_key
-5. Run: python voicebot_faiss.py
-"""
 
 import os
 from dotenv import load_dotenv

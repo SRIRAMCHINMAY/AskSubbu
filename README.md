@@ -7,6 +7,52 @@ Real-time voice-enabled AI assistant for e-commerce with RAG and function callin
 - 🧠 RAG with product knowledge
 - 🔧 Order tracking & product search
 - ⚡ Real-time audio streaming (LiveKit)
+                  ┌───────────────────┐
+                  │   User Voice      │
+                  └────────┬──────────┘
+                           │
+                 Speech-to-Text (STT)
+                           │
+                           ▼
+                  ┌───────────────────┐
+                  │  Text Query       │
+                  └────────┬──────────┘
+                           │
+           ┌───────────────┼─────────────────┐
+           │               │                 │
+           ▼               ▼                 ▼
+   ┌─────────────┐  ┌─────────────┐   ┌─────────────┐
+   │ Product DB  │  │ Inventory / │   │ FAQ / Docs  │
+   │  Catalog    │  │ Pricing API │   │ (PDF/HTML)  │
+   └─────┬───────┘  └─────┬───────┘   └─────┬───────┘
+         │                 │                 │
+         └──────┐   ┌──────┘                 │
+                ▼   ▼                        ▼
+            Vectorization / Embeddings (OpenAI, Cohere, etc.)
+                │   │                        │
+                └───┴──────────────┐
+                                   ▼
+                           Vector Store(s)
+                   (Chroma, Milvus, Weaviate, Pinecone)
+                                   │
+                                   ▼
+                         Retrieval Module
+               (Top-k relevant chunks from each source)
+                                   │
+                                   ▼
+                              Query Router
+               (Optional: decide which sources to prioritize)
+                                   │
+                                   ▼
+                       Large Language Model (LLM)
+                     (Generates natural response)
+                                   │
+                                   ▼
+                         Text-to-Speech (TTS)
+                       (ElevenLabs, Vocode, gTTS)
+                                   │
+                                   ▼
+                            Voice Response
 
 ## Setup
 

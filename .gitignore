@@ -1,0 +1,187 @@
+# .gitignore for E-commerce Voicebot Project
+
+# ========================================
+# CRITICAL: API Keys & Secrets
+# ========================================
+.env
+.env.local
+.env.*.local
+*.env
+secrets.json
+credentials.json
+
+# ========================================
+# Python
+# ========================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# ========================================
+# Vector Databases & Model Files
+# ========================================
+# ChromaDB
+chroma_db/
+*.chroma
+
+# FAISS indices
+*.faiss
+*.index
+faiss_index/
+
+# Sentence transformers cache
+.cache/
+sentence_transformers/
+
+# Downloaded models
+models/
+*.pt
+*.pth
+*.bin
+*.onnx
+
+# ========================================
+# Audio Files (can be large)
+# ========================================
+*.wav
+*.mp3
+*.ogg
+*.flac
+*.m4a
+recordings/
+audio_cache/
+temp_audio/
+
+# ========================================
+# Data Files
+# ========================================
+# Keep structure, ignore actual data
+data/*.csv
+data/*.json
+data/*.xlsx
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+
+# But keep example/sample files
+!data/sample_*.csv
+!data/example_*.json
+
+# ========================================
+# Logs & Temp Files
+# ========================================
+*.log
+logs/
+*.tmp
+*.temp
+temp/
+tmp/
+
+# ========================================
+# IDE / Editor
+# ========================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# ========================================
+# OS
+# ========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ========================================
+# LiveKit specific
+# ========================================
+livekit.yaml
+.livekit/
+
+# ========================================
+# Docker
+# ========================================
+docker-compose.override.yml
+.dockerignore
+
+# ========================================
+# Misc
+# ========================================
+.env.example  # Remove this line if you want to commit .env.example
+node_modules/
+package-lock.json
+yarn.lock

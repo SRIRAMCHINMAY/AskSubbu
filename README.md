@@ -8,27 +8,21 @@ Real-time voice-enabled AI assistant for e-commerce with RAG and function callin
 - 🔧 Order tracking & product search
 - ⚡ Real-time audio streaming (LiveKit)
                flowchart TD
-    A[User Voice] -->|Speech-to-Text| B[Text Query]
+- User Voice
+  - Speech-to-Text (STT)
+    - User Query
+      - Multi-RAG Sources
+        - Product Catalog Node (FAISS)
+        - Inventory / Pricing API Node
+        - FAQ / Docs Node (FAISS)
+        - Customer Reviews / Manuals Node (FAISS)
+      - Merge & Filter Node
+        - Optional: Query Router Node (prioritize sources)
+      - LLM Node (Generate Response)
+        - Optional: Session / Cart Memory Node (multi-turn context)
+      - Text-to-Speech Node (TTS)
+        - Voice Response to User
 
-    B --> C[Product DB / Catalog]
-    B --> D[Inventory / Pricing API]
-    B --> E[FAQ / Docs]
-    B --> F[Customer Reviews / External Docs]
-
-    C --> G[Vectorization / Embeddings]
-    D --> G
-    E --> G
-    F --> G
-
-    G --> H[Vector Store(s) (FAISS / Chroma / Milvus)]
-
-    H --> I[Retrieval Module (Top-k per source)]
-
-    I --> J[Query Router / Source Prioritization]
-
-    J --> K[Large Language Model (LLM)]
-    K --> L[Text-to-Speech (TTS)]
-    L --> M[Voice Response to User]
 
 ## Setup
 
